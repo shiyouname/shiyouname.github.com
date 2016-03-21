@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	body{background:#036;font-size:60px;color:#fff;}
+	#box{width:800px;margin:100px auto;}
+</style>
+</head>
+<script>
+	window.onload=function(){
+			/*
+				1.获取到现在的时间
+				2.改变获取相应src的值，然后改变
+			*/
+			function toDou(n){
+					return n<10?'0'+n:''+n;
+				}
+			function tick(){
+				var oDate=new Date();
+				var Y=oDate.getFullYear();
+				var M=oDate.getMonth()+1;
+				var D=oDate.getDate();
+				var Week=oDate.getDay();
+				var H=oDate.getHours();
+				var Min=oDate.getMinutes();
+				var S=oDate.getSeconds();
+			var oBox1=document.getElementById('box1');
+			var aImg=oBox1.getElementsByTagName('img');
+			var oWeek=document.getElementById('week');
+			var str=Y+'y'+toDou(M)+'m'+toDou(D)+'r'+toDou(H)+toDou(Min)+toDou(S);
+			//2015y12m24r174343
+			var arr=['r','one','two','three','four','five','six']
+			oWeek.src='images/'+arr[Week]+'.png';	
+			for(var i=0;i<aImg.length;i++){
+				aImg[i].src='images/'+str.charAt(i)+'.png';
+			}
+		}
+		tick();
+		setInterval(tick,1000);
+		
+	};
+</script>
+<body>
+<div id="box">
+	<img src="images/title.png" />
+    <div id="box1">
+        <div class="nyr">
+            <img src="images/0.png" />
+            <img src="images/0.png" />
+            <img src="images/0.png" />
+            <img src="images/0.png" />
+            <img src="images/y.png" />
+            <img src="images/0.png" />
+            <img src="images/0.png" />
+            <img src="images/m.png" />
+            <img src="images/0.png" />
+            <img src="images/0.png" />
+            <img src="images/r.png" />
+        </div>
+        <div class="h">
+            <img src="images/0.png" />
+            <img src="images/0.png" />:
+            <img src="images/0.png" />
+            <img src="images/0.png" />:
+            <img src="images/0.png" />
+            <img src="images/0.png" />
+        </div>
+    </div>
+   
+    	
+         <div>
+       	 	<img src="images/week.png" />
+        	<img id="week" src="images/one.png" />
+    	</div>
+</div>
+</body>
+</html>

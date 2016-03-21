@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <base target="_blank" />
     <title>joke_PersonalWebsite</title>
 </head>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/personal.css">
+
 <script src="js/per.js"></script>
+<script src="js/move.js"></script>
 <script src="js/getPos.js"></script>
 <script src="js/addWheel.js"></script>
 <script src="js/jquery-1.12.0.min.js"></script>
+
 <body>
 <div class="box" id="box">
     <div class="goTop"><a href="#box" id="goTop">回到顶部</a></div><!--goTop-->
-    <div class="pos" id="pos">
+    <!--<div class="pos" id="pos">
         <div class="pos_in" id="pos_in">></div>
-    </div><!--pos-->
+    </div>--><!--pos-->
     <nav class="nav1 clearfix" id="nav1">
         <div class="nav_in">
             <h1 class="tit fl" id="tit">
@@ -31,7 +35,19 @@
     <!--<div class="nav_bl"></div>&lt;!&ndash;导航吸顶填充块&ndash;&gt;-->
     <div class="content">
         <div class="c_in">
-            <h2 id="c_in_h2"></h2>
+            <h2 id="c_in_h2">
+                <ul id="c_in_ul" class="c_in_ul clearfix">
+                    <li id="c_in_ul_li1">JS基础效果</li>
+                    <li id="c_in_ul_li2">JS高级运动</li>
+                    <li id="c_in_ul_li3">ajax交互</li>
+                    <li id="c_in_ul_li4">CSS3效果</li>
+                    <li id="c_in_ul_li5">HTML5</li>
+                    <li>弹性碰撞</li>
+                    <li>css页面</li>
+                    <div id="mask"></div>
+                </ul>
+
+            </h2>
             <div class="c_txt" id="c_txt">
                 <div class="c_wheel" id="c_wheel"></div>
                 <div class="c_txt_in" id="c_txt_in">
@@ -74,12 +90,13 @@
                 <dd>出生日期</dd>
                 <dd>供职岗位</dd>
                 <dd>工作地点</dd>
+
             </dl>
             <dl class="about_me_r fl">
                 <dd>施佑</dd>
                 <dd>男</dd>
                 <dd>本科</dd>
-                <dd>15997419196</dd>
+                <dd>18513132138</dd>
                 <dd>8533334@qq.com</dd>
                 <dd>1989年06月04日</dd>
                 <dd>web前端开发</dd>
@@ -88,15 +105,17 @@
 
             <dl class="about_me_r fr">
                 <dd>全职</dd>
-                <dd>**</dd>
-                <dd>****</dd>
+                <dd>2年</dd>
+                <dd>15k</dd>
                 <dd>已离职，可随时到岗</dd>
+                <dd>四级</dd>
             </dl>
             <dl class="about_me_l fr">
                 <dd>工作性质</dd>
                 <dd>工作经验</dd>
                 <dd>期望月薪</dd>
                 <dd>目前状态</dd>
+                <dd>英语水平</dd>
             </dl>
             <div class="professional_skill fl">
                 <h4>专业技能</h4>
@@ -110,241 +129,70 @@
     <div class="work" id="work">
         <div class="work_in">
             <h2>works</h2>
-            <ul class="work_list clearfix">
-                <li class="toG">All</li>
-                <li><a href="javascript:;">自动播放选项卡</a></li>
-                <li><a href="javascript:;">数字时钟</a></li>
-                <li><a href="javascript:;">图片时钟</a></li>
-                <li><a href="javascript:;">图片倒计时</a></li>
-                <li><a href="javascript:;">淘宝彩票</a></li>
-                <li><a href="javascript:;">淘宝评分</a></li>
-                <li><a href="javascript:;">QQ延迟头像</a></li>
-                <li><a href="javascript:;">新浪延迟广告</a></li>
-                <li><a href="javascript:;">微博字数统计</a></li>
-                <li><a href="javascript:;">右下角富媒体</a></li>
-                <li><a href="javascript:;">淘宝瀑布流</a></li>
-                <li><a href="javascript:;">JD搜索框</a></li>
-                <li><a href="javascript:;">图片加载进度条</a></li>
-                <li><a href="javascript:;">淘宝放大镜</a></li>
-                <li><a href="javascript:;">键盘控制块移动</a></li>
-                <li><a href="javascript:;">碰撞检测</a></li>
-                <li><a href="javascript:;">自定义滚动条</a></li>
-                <li><a href="javascript:;">拖拽</a></li>
-            </ul>
-            <div class="work_tab" id="work_tab">
-
-                <ul class="work_pic show clearfix">
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="work_pic clearfix">
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：数字时钟</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="work_pic clearfix">
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：淘宝放大镜</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                    <li class="fl clearfix">
-                        <a href="javascript:;">
-                            <img src="images/img_01.jpg" alt="">
-                        </a>
-                        <div class="w_pos clearfix">
-                            <div class="w_pos_box"></div>
-                            <p class="p1">效果名称：选项卡</p>
-                            <a href="javascript:;">效果源网站：淘宝网首页</a>
-                            <p>效果使用率：★★★★★</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="work_tab_in clearfix" id="work_tab_in">
-                    <div class="active"></div>
-                    <div></div>
-                    <div></div>
+            <div class="work_one">
+                <div class="js_one" id="js_one">
+                    <h4>原生JavaScript效果</h4>
+                    <input type="button" value="←" id="js_one_btn1">
+                    <input type="button" value="→" id="js_one_btn2"><br>
+                    <ul id="js_one_ul1">
+                        <li class="js_one_l2"><a href="demo/magnifier.html">模拟淘宝放大镜</a>
+                            <span>模拟淘宝放大镜</span>
+                        </li>
+                        <li class="js_one_l1"><a href="demo/tbSsq.html">淘宝彩票（双色球）</a><span>淘宝彩票（双色球）</span></li>
+                        <li class="js_one_cur"><a href="javascript:;">自动播放选项卡</a><span>自动播放选项卡</span></li>
+                        <li class="js_one_r1"><a href="demo/超酷时钟.html">超酷时钟</a><span>超酷时钟</span></li>
+                        <li class="js_one_r2"><a href="javascript:;">倒计时</a><span>倒计时</span></li>
+                        <li><a href="javascript:;">DOM-新浪新闻</a><span>DOM-新浪新闻</span></li>
+                        <li><a href="javascript:;">DOM-新闻上下移动</a><span>DOM-新闻上下移动</span></li>
+                        <li><a href="javascript:;">图片懒加载</a><span>图片懒加载</span></li>
+                        <li><a href="javascript:;">瀑布流</a><span>瀑布流</span></li>
+                        <li><a href="javascript:;">模拟淘宝搜索框</a><span>模拟淘宝搜索框</span></li>
+                        <li><a href="javascript:;">图片加载进度条</a><span>图片加载进度条</span></li>
+                        <li><a href="javascript:;">九宫格拖拽</a><span>九宫格拖拽</span></li>
+                    </ul>
+                </div>
+            </div><!--js基础效果-->
+            <div class="work_two">
+                <h4>
+                    <div id="work_two_box">
+                        <span>原生js高级运动</span>
+                        <span class="on">原生js高级运动</span>
+                    </div>
+                </h4>
+                <div id="work_two_div">
+                    <input type="button" value="换一个效果" class="work_two_div_next">
+                    <a href="demo/iPhone/zns_demo3.html" id="work_two_box2"></a>
                 </div>
 
-            </div>
-
+            </div><!--js高级运动效果-->
+            <div class="work_three">
+                <h4>ajax，jsonp数据交互</h4>
+                <input type="button" value="换一个效果" id="work_three_btn">
+                <div class="work_three_box">
+                    <a id="work_three_a" href="http://www.baidu.com/"></a>
+                    <div class="page1">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="page2"></div>
+                </div>
+            </div><!--ajax数据交互-->
+            <div class="work_four">
+                <h4>CSS3，HTML5效果</h4>
+                <ul id="work_four_ul">
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </ul>
+            </div><!--CSS3-->
+            <div class="work_five"></div><!--HTML5-->
+            <div class="work_six"></div><!--弹性碰撞-->
+            <div class="work_seven"></div><!--css2静态页面-->
         </div><!--work-->
 
     </div><!--works-->
@@ -366,7 +214,7 @@
             <div class="contact_in_ipt2 clearfix fl">
                 <div class="fl"><label for="mess">message:</label></div>
                <textarea id="mess" maxlength="500"></textarea>
-               <p class="mes_num" id="mes_num">共输入0字,您还可以输入500字</p>
+               <p class="mes_num" id="mes_num">共输入0字,您还可以输入50字</p>
             </div>
             <input class="btn" type="submit" value="send">
 

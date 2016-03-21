@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    #div1{
+        float:left;
+        width:310px;
+        height:310px;
+        position:relative;
+        margin-right:50px;
+        margin-left:50px;
+        margin-top:50px;
+    }
+    #mask{
+        width:100px;
+        height:100px;
+        background:red;
+        opacity:0.3;
+        filter:alpha(opacity:30);
+        position:absolute;
+        top:0;
+        left:0;
+        display:none;
+    }
+    #div2{
+        width:310px;
+        height:310px;
+        margin-top:50px;
+        float:left;
+        overflow:hidden;
+        display:none;
+        position:relative;
+    }
+    #div2 img{
+        position:absolute;
+        left:0;
+        top:0;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var oDiv1=document.getElementById('div1');
+        var oDiv2=document.getElementById('div2');
+        var oMask=document.getElementById('mask');
+        var oImg=oDiv2.children[0];
+
+
+
+        oDiv1.onmouseover=function(){
+            oDiv2.style.display='block';
+            oMask.style.display='block';
+        };
+        oDiv1.onmouseout=function(){
+            oDiv2.style.display='none';
+            oMask.style.display='none';
+        };
+        oDiv1.onmousemove=function(ev){
+            var oEvent=ev||event;
+            var l=oEvent.clientX-oMask.offsetWidth/2-oDiv1.offsetLeft;
+            var t=oEvent.clientY-oMask.offsetHeight/2-oDiv1.offsetTop;
+            var oMaxLeft=oDiv1.offsetWidth-oMask.offsetWidth;
+            var oMaxTop=oDiv1.offsetHeight-oMask.offsetHeight;
+            var oMaxLeft2=oImg.offsetWidth-oDiv2.offsetWidth;
+            var oMaxTop2=oImg.offsetHeight-oDiv2.offsetHeight;
+
+
+            //alert(oMaxLeft);
+
+            if(l<0){
+                l=0;
+            }else if(l>oMaxLeft){
+                l=oMaxLeft;
+            }
+            if(t<0){
+                t=0;
+            }else if(t>oMaxTop){
+                t=oMaxTop;
+            }
+            oMask.style.left=l+'px';
+            oMask.style.top=t+'px';
+
+            oImg.style.left=-((l/oMaxLeft)*oMaxLeft2)+'px';
+            oImg.style.top=-((t/oMaxTop)*oMaxTop2)+'px';
+        };
+
+    };
+</script>
+<body>
+<div id="box">
+    <div id="div1">
+        <img src="images/m1.jpg">
+        <div id="mask"></div>
+    </div>
+    <div id="div2">
+        <img src="images/b1.jpg">
+    </div>
+</div>
+</body>
+</html>
