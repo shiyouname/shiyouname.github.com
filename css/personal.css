@@ -1,10 +1,16 @@
 @charset "utf-8";
 body{
-    height:2866px;
+    width:100%;
+    height:100%;
 }
 .box{
     min-width:940px;
 }
+/*goTo*/
+#goTo{width:2px;height:230px;position:fixed;top:30%;right:30px;background:red;}
+#goTo a{margin-bottom:30px;display:block;width:10px;height:10px;border-radius:50%;border:1px solid #fff;margin-left:-5px;margin-top:-5px;background:#ccc;transition:1s all ease;}
+#goTo a.on{background:red;transform:rotateY(360deg);}
+/*goTo*/
 /*goTOP*/
 .goTop{
     width:32px;
@@ -272,29 +278,30 @@ body{
 /*about*/
 .about{
     min-width:940px;
-    height:700px;
-    background:#e7ebee;
+    height:715px;
+    background:url("../images/bg1.jpg") no-repeat;/*#e7ebee*/
+    background-size:cover;
 }
 .about_in{
     width:940px;
-    height:700px;
+    height:715px;
     margin:0 auto;
 }
 .about_in h2{
     font-size:60px;
     font-weight:bold;
     width:300px;
-    margin:0px auto;
+    margin:0 auto;
     padding:60px;
-    color:#273238;
+    color:#fff;
 }
 .about_me_l{
     width:200px;
-    color:#999;
+    color:#fff;
 }
 .about_me_r{
     width:200px;
-    color:#0c3452;
+    color:#12151c;
 }
 .about_me_l dd{
     font-size:16px;
@@ -320,7 +327,7 @@ body{
     font-size:16px;
     line-height:28px;
     text-indent:2em;
-    color:#0c3452;
+    color:#ccc;
 }
 /*about me 结束*/
 /*works*/
@@ -330,13 +337,8 @@ body{
     background:#253141;
     color:#fff;
 }
-.work_in{
-    width:940px;
-    height:2850px;
-    margin: 0 auto;
 
-}
-.work_in h2{
+.work h2{
     width:180px;
     font-size:60px;
     font-weight:bold;
@@ -345,7 +347,8 @@ body{
     text-shadow:2px 2px 2px #666,2px 2px 2px #fff,2px 2px 2px #000;
 }
 /*one_js基础效果样式*/
-.work_one{width:940px;height:400px;margin:0 auto;border-bottom:1px solid #ccc;}
+.work_one_all{min-width:940px;height:500px;}
+.work_one{width:940px;height:500px;margin:0 auto;border-bottom:1px solid #ccc;}
 .js_one{width:940px;position:relative;}
 .js_one h4{font-size:14px;width:280px;height:40px;margin:20px auto;border:1px solid #ccc;text-align:center;line-height:40px;transition:1.4s all ease;}
 .js_one h4:hover{background:#fff;border-radius:10px;color:#000;font-weight:bold;transform:scale(1.1);}
@@ -365,28 +368,30 @@ body{
 #js_one_ul1 li span{ border:1px solid #ccc; background:#666; position:absolute; left:0; top:0; width:100%; height:100%; transform:translateY(10px) scale(1,-1); transform-origin:center bottom; -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)); opacity:0.5;}
 /*one结束*/
 /*two开始*/
-.work_two{width:940px;height:800px;margin:0 auto;border-bottom:1px solid #ccc;position:relative;}
+.work_two_all{min-width:940px;height:700px;background:url(../images/bg7.jpg) no-repeat;}
+.work_two{width:940px;height:700px;margin:0 auto;border-bottom:1px solid #ccc;position:relative;}
 
 @-webkit-keyframes test{
     from{background-position:-300px 0}
     to{background-position:600px 0}
 }
-#work_two_box{width:280px;height:40px;background:#000;margin:60px auto;color:#999;position:relative;}
+#work_two_box{width:280px;height:40px;background:#000;margin:0 auto;margin-bottom:20px;color:#999;position:relative;}
 #work_two_box span{width:100%;height:100%;position:absolute;left:0;top:0;text-align:center;line-height:40px;font-size:16px;}
 #work_two_box span.on{background:-webkit-linear-gradient(-45deg,rgba(255,255,255,0) 40%,rgba(255,255,255,1) 50%,rgba(255,255,255,0)) 60%;-webkit-background-clip:text;color:rgba(0,0,0,0);background-position:-300px 0;animation:4s test linear infinite;}
 
-#work_two_box2{ width:700px; height:400px; background:url(../images/img/1.jpg) no-repeat;  position:absolute;border:1px solid #ccc;left:130px;top:260px;}
+#work_two_box2{ width:700px; height:400px; background:url(../images/img/1.jpg) no-repeat;  position:absolute;border:1px solid #ccc;left:130px;top:210px;}
 
 #work_two_box2 span{ position:absolute; background:url(../images/img/0.jpg) no-repeat;}
 
 .work_two_div_next{background:#f4824c;width:120px;height:120px;border-radius:50%;outline: none;margin-left:410px;border:1px dashed #fff;color:#fff;}
 /*two结束*/
 /*three开始*/
-.work_three {width:940px;height:650px;margin:0 auto;border-bottom:1px solid #ccc;}
+.work_three_all{min-width:940px;height:700px;background:url(../images/bg3.jpg) no-repeat;background-size:cover;}
+.work_three {width:940px;height:700px;margin:0 auto;border-bottom:1px solid #ccc;}
 
-.work_three h4{font-size:14px;width:280px;height:40px;margin:40px auto;border:1px solid #ccc;text-align:center;line-height:40px;transition:1.4s all ease;}
+.work_three h4{font-size:14px;width:280px;height:40px;margin:0 auto;border:1px solid #ccc;text-align:center;line-height:40px;transition:1.4s all ease;margin-bottom:30px;}
 .work_three h4:hover{background:#f4824c;border-radius:10px;}
-.work_three_box{width:700px; height:400px; background:url(../images/1.jpg) no-repeat; margin:30px auto; position:relative; top:0; left:0;border:1px solid #ccc;}
+.work_three_box{width:700px; height:400px; background:url(../images/1.jpg) no-repeat; margin:60px auto; position:relative; top:0; left:0;border:1px solid #ccc;}
 
 .work_three_box .page1{height:100%; width:50%; position:absolute; right:0; top:0; transform-style:preserve-3d; transform:perspective(800px) rotateY(0deg); transform-origin:left; z-index:2;}
 .work_three_box  a{width:100%;height:100%;position:absolute;left:0;top:0;z-index:6;}
@@ -397,11 +402,13 @@ body{
 
 /*three结束*/
 /*four*/
-.work_four h4{font-size:14px;width:280px;height:40px;margin:40px auto;border:1px solid #ccc;text-align:center;line-height:40px;transition:1.4s all ease;}
+.work_four_all{min-width:940px;height:850px;background:url(../images/bg.jpeg) no-repeat;background-size:cover;}
+.work_four {width:940px;height:650px;margin:0 auto;border-bottom:1px solid #ccc;}
+.work_four h4{font-size:14px;width:280px;height:40px;margin:0 auto;border:1px solid #ccc;text-align:center;line-height:40px;transition:1.4s all ease;}
 .work_four h4:hover{background:#f4824c;border-radius:10px;color:#000;}
 .work_four ul{overflow:hidden; width:940px;margin-left:50px;margin-top:50px;}
 .work_four ul li{ width:200px; height:200px; float:left; position:relative; top:0; left:0; margin:5px; background:#ccc; line-height:200px; font-size:30px; overflow:hidden;border-radius:5px;}
-.work_four ul li span{width:100%; height:100%; position:absolute; top:0; left:-200px; background:rgba(255,255,0,0.2);border-radius:5px;}
+.work_four ul li span{width:100%; height:100%; position:absolute; top:0; left:-200px; background:rgba(255,255,0,0.5);border-radius:5px;}
 
 /*four*/
 /*work结束*/

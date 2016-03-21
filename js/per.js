@@ -2,7 +2,95 @@
  * Created by Administrator on 2016/2/8.
  */
 window.onload=function(){
+    /*goTo效果*/
+    (function(){
+        function moveToTarget(obj,iTarget){
+            var sT=document.documentElement.scrollTop||document.body.scrollTop;
+            var start=obj.offsetTop+sT;//要加上滚动距离
+            var dis=iTarget-start;
+            var count=Math.floor(700/16);
+            var n=0;
+            var timer=null;
+            clearInterval(timer);
+            timer=setInterval(function(){
+                n++;
+                var a=1-n/count;
+                var cur=start+(1-Math.pow(a,3))*dis;
+                document.documentElement.scrollTop=cur;
+                document.body.scrollTop=cur;
+                if(n==count){
+                    clearInterval(timer);
+                }
+            },16);
+            if(sT==iTarget){
+                clearInterval(timer);
+            }
+        }
 
+        var oGoTo=document.getElementById('goTo');
+        var aA=oGoTo.getElementsByTagName('a');
+
+        window.onscroll=function(){
+            var st=(document.documentElement.scrollTop||document.body.scrollTop);
+            if(st>=0&&st<700){
+                aA[0].className='on';
+            }else{
+                aA[0].className='';
+            }
+            if(st>=700&&st<1400){
+                aA[1].className='on';
+            }else{
+                aA[1].className='';
+            }
+            if(st>=1400&&st<2090){
+                aA[2].className='on';
+            }else{
+                aA[2].className='';
+            }
+            if(st>=2090&&st<2790){
+                aA[3].className='on';
+            }else{
+                aA[3].className='';
+            }
+            if(st>=2790&&st<3490){
+                aA[4].className='on';
+            }else{
+                aA[4].className='';
+            }
+            if(st>=3490&&st<4060){
+                aA[5].className='on';
+            }else{
+                aA[5].className='';
+            }
+            if(st>=4060){
+                aA[6].className='on';
+            }else{
+                aA[6].className='';
+            }
+        };
+
+        aA[0].onclick=function(){
+            moveToTarget(this,0);
+        };
+        aA[1].onclick=function(){
+            moveToTarget(this,700);
+        };
+        aA[2].onclick=function(){
+            moveToTarget(this,1400);
+        };
+        aA[3].onclick=function(){
+            moveToTarget(this,2090);
+        };
+        aA[4].onclick=function(){
+            moveToTarget(this,2790);
+        };
+        aA[5].onclick=function(){
+            moveToTarget(this,3490);
+        };
+        aA[6].onclick=function(){
+            moveToTarget(this,4060);
+        };
+    })();
     /*
      *第二个效果：效果导航
      */
@@ -74,16 +162,16 @@ window.onload=function(){
             moveToTarget(this,1400);
         };
         oC_in_ul_li2.onclick=function(){
-            moveToTarget(this,2000);
+            moveToTarget(this,2080);
         };
         oC_in_ul_li3.onclick=function(){
-            moveToTarget(this,2850);
+            moveToTarget(this,2790);
         };
         oC_in_ul_li4.onclick=function(){
-            moveToTarget(this,3500);
+            moveToTarget(this,3490);
         };
         oC_in_ul_li5.onclick=function(){
-            moveToTarget(this,3500);
+            moveToTarget(this,3490);
         };
     })();
     /*

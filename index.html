@@ -17,9 +17,15 @@
 <body>
 <div class="box" id="box">
     <div class="goTop"><a href="#box" id="goTop">回到顶部</a></div><!--goTop-->
-    <!--<div class="pos" id="pos">
-        <div class="pos_in" id="pos_in">></div>
-    </div>--><!--pos-->
+    <div id="goTo">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
     <nav class="nav1 clearfix" id="nav1">
         <div class="nav_in">
             <h1 class="tit fl" id="tit">
@@ -119,81 +125,92 @@
             </dl>
             <div class="professional_skill fl">
                 <h4>专业技能</h4>
-                <p>1.&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&</p>
-                <p>2.&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&</p>
-                <p>3.&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&</p>
+                <p>1.精通HTML/XHTML、CSS等网页制作技术，熟悉页面架构及布局,能熟练运用DIV+CSS来制作符合W3C规范的静态页面</p>
+                <p>2.能熟练使用原生JavaScript和jQuery等前端库</p>
+                <p>3.能熟练使用 ajax 和 jsonp 进行数据交互</p>
+                <p>4.熟悉CSS3效果</p>
+                <p>5.熟悉移动端布局，并能良好的兼容各主流移动终端</p>
             </div>
 
         </div>
     </div><!--about me-->
     <div class="work" id="work">
-        <div class="work_in">
+        <!--<div class="work_in">-->
             <h2>works</h2>
-            <div class="work_one">
-                <div class="js_one" id="js_one">
-                    <h4>原生JavaScript效果</h4>
-                    <input type="button" value="←" id="js_one_btn1">
-                    <input type="button" value="→" id="js_one_btn2"><br>
-                    <ul id="js_one_ul1">
-                        <li class="js_one_l2"><a href="demo/magnifier.html">模拟淘宝放大镜</a>
-                            <span>模拟淘宝放大镜</span>
-                        </li>
-                        <li class="js_one_l1"><a href="demo/tbSsq.html">淘宝彩票（双色球）</a><span>淘宝彩票（双色球）</span></li>
-                        <li class="js_one_cur"><a href="javascript:;">自动播放选项卡</a><span>自动播放选项卡</span></li>
-                        <li class="js_one_r1"><a href="demo/超酷时钟.html">超酷时钟</a><span>超酷时钟</span></li>
-                        <li class="js_one_r2"><a href="javascript:;">倒计时</a><span>倒计时</span></li>
-                        <li><a href="javascript:;">DOM-新浪新闻</a><span>DOM-新浪新闻</span></li>
-                        <li><a href="javascript:;">DOM-新闻上下移动</a><span>DOM-新闻上下移动</span></li>
-                        <li><a href="javascript:;">图片懒加载</a><span>图片懒加载</span></li>
-                        <li><a href="javascript:;">瀑布流</a><span>瀑布流</span></li>
-                        <li><a href="javascript:;">模拟淘宝搜索框</a><span>模拟淘宝搜索框</span></li>
-                        <li><a href="javascript:;">图片加载进度条</a><span>图片加载进度条</span></li>
-                        <li><a href="javascript:;">九宫格拖拽</a><span>九宫格拖拽</span></li>
-                    </ul>
-                </div>
-            </div><!--js基础效果-->
-            <div class="work_two">
-                <h4>
-                    <div id="work_two_box">
-                        <span>原生js高级运动</span>
-                        <span class="on">原生js高级运动</span>
+            <div class="work_one_all">
+                <div class="work_one">
+                    <div class="js_one" id="js_one">
+                        <h4>原生JavaScript效果</h4>
+                        <input type="button" value="←" id="js_one_btn1">
+                        <input type="button" value="→" id="js_one_btn2"><br>
+                        <ul id="js_one_ul1">
+                            <li class="js_one_l2"><a href="demo/magnifier.html">模拟淘宝放大镜</a>
+                                <span>模拟淘宝放大镜</span>
+                            </li>
+                            <li class="js_one_l1"><a href="demo/tbSsq.html">淘宝彩票（双色球）</a><span>淘宝彩票（双色球）</span></li>
+                            <li class="js_one_cur"><a href="javascript:;">自动播放选项卡</a><span>自动播放选项卡</span></li>
+                            <li class="js_one_r1"><a href="demo/超酷时钟.html">超酷时钟</a><span>超酷时钟</span></li>
+                            <li class="js_one_r2"><a href="javascript:;">倒计时</a><span>倒计时</span></li>
+                            <li><a href="javascript:;">DOM-新浪新闻</a><span>DOM-新浪新闻</span></li>
+                            <li><a href="javascript:;">DOM-新闻上下移动</a><span>DOM-新闻上下移动</span></li>
+                            <li><a href="javascript:;">图片懒加载</a><span>图片懒加载</span></li>
+                            <li><a href="javascript:;">瀑布流</a><span>瀑布流</span></li>
+                            <li><a href="javascript:;">模拟淘宝搜索框</a><span>模拟淘宝搜索框</span></li>
+                            <li><a href="javascript:;">图片加载进度条</a><span>图片加载进度条</span></li>
+                            <li><a href="javascript:;">九宫格拖拽</a><span>九宫格拖拽</span></li>
+                        </ul>
                     </div>
-                </h4>
-                <div id="work_two_div">
-                    <input type="button" value="换一个效果" class="work_two_div_next">
-                    <a href="demo/iPhone/zns_demo3.html" id="work_two_box2"></a>
-                </div>
+                </div><!--js基础效果-->
+            </div>
+            <div class="work_two_all">
+                <div class="work_two">
+                    <h4>
+                        <div id="work_two_box">
+                            <span>原生js高级运动</span>
+                            <span class="on">原生js高级运动</span>
+                        </div>
+                    </h4>
+                    <div id="work_two_div">
+                        <input type="button" value="换一个效果" class="work_two_div_next">
+                        <a href="demo/iPhone/zns_demo3.html" id="work_two_box2"></a>
+                    </div>
 
-            </div><!--js高级运动效果-->
-            <div class="work_three">
-                <h4>ajax，jsonp数据交互</h4>
-                <input type="button" value="换一个效果" id="work_three_btn">
-                <div class="work_three_box">
-                    <a id="work_three_a" href="http://www.baidu.com/"></a>
-                    <div class="page1">
-                        <div class="front"></div>
-                        <div class="back"></div>
+                </div><!--js高级运动效果-->
+            </div>
+            <div class="work_three_all">
+                <div class="work_three">
+                    <h4>ajax，jsonp数据交互</h4>
+                    <input type="button" value="换一个效果" id="work_three_btn">
+                    <div class="work_three_box">
+                        <a id="work_three_a" href="http://www.baidu.com/"></a>
+                        <div class="page1">
+                            <div class="front"></div>
+                            <div class="back"></div>
+                        </div>
+                        <div class="page2"></div>
                     </div>
-                    <div class="page2"></div>
-                </div>
-            </div><!--ajax数据交互-->
-            <div class="work_four">
-                <h4>CSS3，HTML5效果</h4>
-                <ul id="work_four_ul">
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                    <li><span></span></li>
-                </ul>
-            </div><!--CSS3-->
+                </div><!--ajax数据交互-->
+            </div>
+            <div class="work_four_all">
+                <div class="work_four">
+                    <h4>CSS3，HTML5效果</h4>
+                    <ul id="work_four_ul">
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                    </ul>
+                </div><!--CSS3-->
+            </div>
+
             <div class="work_five"></div><!--HTML5-->
             <div class="work_six"></div><!--弹性碰撞-->
             <div class="work_seven"></div><!--css2静态页面-->
-        </div><!--work-->
+        <!--</div>--><!--work-->
 
     </div><!--works-->
     <div class="contact" id="contact">
