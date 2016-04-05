@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>光照效果</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+.sun{ width:200px; height:200px; background:url(img/1.png) no-repeat; background-size:contain; position:absolute; left:0; top:0; cursor:crosshair;}
+
+p{ font-size:30px; font-weight:bold; width:320px; position:absolute; left:50%; margin-left:-150px; top:300px;}
+</style>
+<script>
+window.onload=function(){
+	var oSun=document.querySelector('.sun');	
+	var oP=document.querySelector('p');
+	
+	document.onmousemove=function(ev){
+		var oEvent=ev || event;
+		
+		oSun.style.left=oEvent.clientX-oSun.offsetWidth/2+'px';
+		oSun.style.top=oEvent.clientY-oSun.offsetHeight/2+'px';
+		
+		//阴影
+		var x=oP.offsetLeft+oP.offsetWidth/2-oEvent.clientX;
+		var y=oP.offsetTop+oP.offsetHeight/2-oEvent.clientY;
+		var c=Math.sqrt(x*x+y*y);
+		
+		document.title=c/500;
+		oP.style.textShadow=x/5+'px '+y/5+'px '+c/50+'px rgba(0,0,0,'+(1-c/500)+')';
+	};
+};
+</script>
+</head>
+
+<body>
+<div class="sun"></div>
+
+<p>我是被太阳光照的物体</p>
+</body>
+</html>

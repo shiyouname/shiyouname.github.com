@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	img{width:400px;height:400px;border:1px solid #ccc;}
+</style>
+<script>
+	function getPos(obj){
+		var l=0;
+		var t=0;
+		while(obj){
+			l+=obj.offsetLeft;
+			t+=obj.offsetTop;
+			obj=obj.offsetParent;	
+		}
+		
+		return {
+			top:t,
+			left:l	
+		}	
+	}
+	window.onload=window.onscroll=function(){
+		var aImg=document.getElementsByTagName('img');
+		var cH=document.documentElement.clientHeight;
+		var sH=document.documentElement.scrollTop||document.body.scrollTop;
+		
+		for(var i=0;i<aImg.length;i++){
+			var oT=getPos(aImg[i]).top;
+			if(oT<=cH+sH){
+				aImg[i].src=aImg[i].getAttribute('_src');
+			}
+			console.log(aImg[i].offsetTop,cH,sH);	
+		}
+		
+		//图片距离body的高度=可视区的高度+滚动距离的时候加载出来	
+	};
+</script>
+</head>
+
+<body>
+<div id="box">
+	<img _src="images/1.jpg" />
+    <img _src="images/2.jpg" />
+    <img _src="images/3.jpg" />
+    <img _src="images/4.jpg" />
+    <img _src="images/5.jpg" />
+    <img _src="images/6.jpg" />
+    <img _src="images/7.jpg" />
+    <img _src="images/8.jpg" />
+    <img _src="images/9.jpg" />
+    <img _src="images/10.jpg" />
+    <img _src="images/11.jpg" />
+    <img _src="images/12.jpg" />
+    <img _src="images/13.jpg" />
+    <img _src="images/14.jpg" />
+    <img _src="images/15.jpg" />
+</div>
+</body>
+</html>

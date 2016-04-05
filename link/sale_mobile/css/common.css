@@ -1,0 +1,13 @@
+/*style reset*/
+body,ul,p,h1,h2,h3,h4,h5,h6,dl,dd,form,input,textarea,select{padding:0; margin:0;font:12px/1em "宋体";}
+li{list-style:none;}
+img{border:none;vertical-align:top;}
+a{text-decoration:none;}
+.clearfix{*zoom:1;}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.fl{float:left; _display:inline;}
+.fr{float:right; _display:inline;}

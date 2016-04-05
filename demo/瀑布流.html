@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    ul{
+        width:300px;
+        margin-left:30px;
+        border:1px solid #ccc;
+        float:left;
+    }
+    li{
+        width:100%;
+        list-style:none;
+    }
+    #box{
+        float:left;
+    }
+</style>
+<script>
+    function rnd(n,m){
+        return parseInt(n+Math.random()*(m-n));
+    }
+    window.onload=function(){
+        var aUl=document.getElementsByTagName('ul');
+        var oBox=document.getElementById('box');
+        function c20(){
+            var arr=[];
+            for(var i=0;i<aUl.length;i++){
+                arr.push(aUl[i]);
+            }
+
+            for(var i=0;i<20;i++){
+                arr.sort(function(Ul1,Ul2){
+                    return Ul1.offsetHeight-Ul2.offsetHeight;
+                });
+                var oLi=document.createElement('li');
+                oLi.style.height=rnd(150,300)+'px';
+                oLi.style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+                arr[0].appendChild(oLi);
+            }
+        }
+        c20();
+
+        window.onscroll=function(){
+            var cH=document.documentElement.clientHeight;
+            var sT=document.documentElement.scrollTop||document.body.scrollTop;
+            var sH=document.body.scrollHeight;
+            if(oBox.offsetHeight==sT+cH){
+                //if判断是==
+                //if判断是==
+                //if判断是==
+                c20();
+            }
+            console.log(oBox.offsetHeight,sT,cH)
+        };
+    };
+</script>
+<body>
+<div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+
+</body>
+</html>

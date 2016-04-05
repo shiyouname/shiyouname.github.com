@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#ul1 {width:600px; margin:10px auto;}
+#ul1 li {border:1px solid #CCC; padding:4px;}
+#ul1 span {width:500px; display:inline-block;}
+</style>
+<script>
+	function findInArr(str,arr){
+		for(var i=0;i<arr.length;i++){
+			if(str==arr[i]){
+				return true;	
+			}	
+		}	
+		return false;
+	}
+	function getByClass(oParent,sClass){
+			var aEle=document.getElementsByTagName('*');
+			var result=[];
+			for(var i=0;i<aEle.length;i++){
+					var arr=aEle[i].className.split(' ');
+					
+					if(findInArr(sClass,arr)){
+							result.push(aEle[i]);
+					}
+			}
+			return result;
+	}
+	window.onload=function(){
+		var oUl=document.getElementById('ul1');
+		var aPre=getByClass(oUl,'prev');	
+		var aNext=getByClass(oUl,'next');
+		for(var i=0;i<aPre.length;i++){
+			aPre[i].onclick=function(){
+				var obj=this.parentNode;
+				var oPre=obj.previousElementSibling||obj.previousSibling;	
+				if(oUl.children[0]==obj){
+					alert('第一个了');
+					return;	
+				}
+				oUl.insertBefore(obj,oPre);	
+			};	
+		}
+		for(var i=0;i<aNext.length;i++){
+			aNext[i].onclick=function(){
+				var obj=this.parentNode;
+				var oNext=obj.nextElementSibling||obj.nextSibling;
+				var oNext2=oNext.nextElementSibling||oNext.nextSibling;
+				if(oUl.children[oUl.children.length-1]==obj){
+					alert('最后一个了');
+					return;	
+				}
+				
+				oUl.insertBefore(obj,oNext2);	
+			};	
+		}
+	};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li>
+    	<span>0.中央军委晋升四名上将 习近平颁命令状</span>
+        <a href="javascript:;" class="prev">上移</a>
+        <a href="javascript:;" class="next">下移</a>
+    </li>
+	<li>
+    	<span>1.李克强:建良好生态环境向全民提供</span>
+        <a href="javascript:;" class="prev">上移</a>
+        <a href="javascript:;" class="next">下移</a>
+    </li>
+	<li>
+    	<span>2.江西涉贪9400万元官员移民后获刑</span>
+        <a href="javascript:;" class="prev">上移</a>
+        <a href="javascript:;" class="next">下移</a>
+    </li>
+	<li>
+    	<span>3.31个省级纪委书记平均57.6岁 逾6成异地调任</span>
+        <a href="javascript:;" class="prev">上移</a>
+        <a href="javascript:;" class="next">下移</a>
+    </li>
+</ul>
+
+</body>
+</html>

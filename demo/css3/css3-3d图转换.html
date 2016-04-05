@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    *{margin:0;padding:0;}
+    body{background:#000;}
+    #box{width:133px;height:200px;position:absolute;left:50%;top:50%;margin:-100px 0 0 -65px;-webkit-transform:perspective(800px) rotateX(0deg) rotateY(0deg);-webkit-transform-style:preserve-3d;}
+    #box span{width:100%;height:100%;position:absolute;left:0;top:0;}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var oBox=document.querySelector('#box');
+        var n=11;
+        var iSpeedX=0;
+        var iSpeedY=0;
+        var lastX=0;
+        var lastY=0;
+            for(var i=0;i<n;i++){
+                var oS=document.createElement('span');
+                oS.style.background='url(img2/'+(i+1)+'.jpg)';
+                oBox.appendChild(oS);
+                /*oS.style.WebkitTransition = '1s all ease '+(n-i)*300+'ms';*/
+                oS.style.WebkitTransition = '1s all ease '+(n-i)*300+'ms';
+
+                (function(oS,i){
+                    setTimeout(function(){
+                        oS.style.WebkitTransform=' rotateY('+(360/n*i)+'deg) translateZ(300px)';
+                    },0);
+                })(oS,i);
+            }
+        var X=0;
+        var Y=0;
+        var timer;
+        oBox.onmousedown=function(ev){
+            /*
+            *             X记录了最后鼠标up的时候X的值
+            *             Y记录了最后鼠标up的时候Y的值
+            */
+            var disX=ev.clientX-X;
+            var disY=ev.clientY-Y;
+            document.onmousemove=function(ev){
+                X=ev.clientX-disX;
+                Y=ev.clientY-disY;
+                oBox.style.WebkitTransform='perspective(800px) rotateX('+-Y/10+'deg) rotateY('+X/10+'deg)';
+                //计算出最后丢出的时候,倒数第二次和倒数第一次的距离
+                //显然这句话是比较抽象的
+                iSpeedX=ev.clientX-lastX;
+                lastX=ev.clientX;
+                iSpeedY=ev.clientY-lastY;
+                lastY=ev.clientY;
+            };
+            document.onmouseup=function(){
+                document.onmousemove=document.onmouseup=null;
+                oBox.timer=setInterval(function(){
+                    //一直运动下去
+                    Y+=iSpeedY;
+                    //加一个摩擦力
+                    iSpeedY*=0.95;
+
+                    X+=iSpeedX;
+                    iSpeedX*=0.95;
+
+                    oBox.style.WebkitTransform='perspective(800px) rotateX('+-Y/10+'deg) rotateY('+X/10+'deg)';
+                    if(Math.abs(iSpeedX)<1)iSpeedX=0;
+                    if(Math.abs(iSpeedY)<1)iSpeedY=0;
+                    if(iSpeedX==0&&iSpeedY==0){
+                        clearInterval(oBox.timer);
+                    }
+                },30);
+                oBox.releaseCapture&&oBox.releaseCapture();
+            };
+            oBox.setCapture&&oBox.setCapture();
+            return false;
+        };
+    },false);
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

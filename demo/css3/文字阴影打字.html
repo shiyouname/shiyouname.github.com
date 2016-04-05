@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文字阴影打字</title>
+<style>
+body{ background:#000; color:#fff; font-size:38px; font-weight:bold; font-family:微软雅黑; text-indent:2em;}
+
+span{ color:rgba(255,255,255,0); text-shadow:0 0 100px #fff; opacity:0; transition:2s all ease;}
+span.on{ text-shadow:0 0 0 #fff; opacity:1;}
+</style>
+<script>
+window.onload=function(){
+	var str='党的十八大以来，我们党顺应党心民意，坚持党要管党、从严治党，以猛药去疴、重典治乱的决心，以刮骨疗毒、壮士断腕的勇气，深入推进党风廉政建设和反腐败斗争，党风廉政建设和反腐败斗争取得了新的重大成效，党风政风为之一新，党心民心为之一振。同时，我们也要看到，这些成效是阶段性的，当前，党风廉政建设和反腐败斗争形势依然严峻复杂。开弓没有回头箭，反腐没有休止符。我们必须保持政治定力，以强烈的历史责任感、深沉的使命忧思感、顽强的意志品质，以抓铁有痕、踏石留印的劲头持续抓下去。';
+	
+	for(var i=0; i<str.length; i++){
+		var oSpan=document.createElement('span');
+		oSpan.innerHTML=str.charAt(i);
+		document.body.appendChild(oSpan);
+	}	
+	
+	var aSpan=document.body.children;
+	
+	var n=0;
+	var timer=null;
+	timer=setInterval(function(){
+		aSpan[n].className='on';
+		
+		n++;
+		if(n==aSpan.length){
+			clearInterval(timer);	
+		}
+	},100);
+	
+	//用js添加阴影
+	for(var i=0; i<aSpan.length; i++){
+		aSpan[i].onmouseover=function(){
+			this.style.textShadow='1px 1px 4px yellow';	
+		};
+	}
+};
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    span{
+        font-size:30px;
+    }
+</style>
+<script>
+    /*
+     *思路：
+     * 一秒setTimeout思路
+     * 解决的是每调用一次，页面上显示的秒数加1（自动换算到分钟）
+     *当开启setInterval();每1秒调用一次的时候页面上自动更改;
+     * 当不需要秒表走动的时候，只需要关闭定时器即可
+     */
+    window.onload=function() {
+        var oStart = document.getElementById('start');
+        var oRe = document.getElementById('re');
+        var oSpan = document.getElementById('span1');
+        var timer = null;
+        var timer1 = null;
+        var h=0;
+        var s=0;
+        var m=0;
+        function tuDou(n){
+            return n<10?'0'+n:''+n;
+        }
+        function startit() {
+            timer1=setTimeout(function(){
+                s++;
+                if (s >= 60) { //判断秒是否到60, 是则进位
+                    s = 0;
+                    m++;
+                }
+                if (m >= 60) { //判断分是否到60, 是则进位
+                    m = 0;
+                    h++;
+                }
+                oSpan.innerHTML = tuDou(h) + ":" + tuDou(m) + ":" + tuDou(s); //更新显示
+            }, 1000); //每隔1秒（1000毫秒）递归调用一次
+
+        }
+
+        oStart.onclick=function(){
+            if(this.value=='开始'){
+                startit();
+                clearInterval(timer);
+                timer = setInterval(startit,1000);
+                this.value='暂停';
+            }else if(this.value=='暂停'){
+                clearTimeout(timer1);
+                clearInterval(timer);
+                this.value='开始';
+            }
+        };
+        oRe.onclick=function(){
+            s=0;
+            clearTimeout(timer1);
+            clearInterval(timer);
+            oSpan.innerHTML = '00:00:00';
+            if(oStart.value=='暂停'){
+                oStart.value='开始';
+            }
+        };
+
+    };
+</script>
+<body>
+<input type="button" value="开始" id="start">
+<input type="button" value="复位" id="re">
+<span id="span1">00:00:00</span>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box div{
+            width:100px;
+            height:100px;
+            background:#ccc;
+            display:none;
+        }
+        .box div.show{display:block;}
+        .box input.on{background:red;}
+    </style>
+<script>
+    //属性
+    function Tab(id){
+        if(!id)return;
+        this.oBox=document.getElementById(id);
+        this.aBtn=this.oBox.getElementsByTagName('input');
+        this.aDiv=this.oBox.getElementsByTagName('div');
+        this.iNow=0;
+        this.init();
+    }
+    Tab.prototype.init=function(){
+        var _this=this;
+        for(var i=0;i<this.aBtn.length;i++){
+            this.aBtn[i].index=i;
+            this.aBtn[i].onclick=function(){
+                _this.iNow=this.index;
+                _this.hide();
+                _this.show();
+            }
+        }
+    };
+    Tab.prototype.hide=function(){
+        for(var i=0;i<this.aBtn.length;i++){
+            this.aBtn[i].className='';
+            this.aDiv[i].className='';
+        }
+    };
+    Tab.prototype.show=function(){
+        this.aBtn[this.iNow].className='on';
+        this.aDiv[this.iNow].className='show';
+    };
+    //========继承=========//
+
+    function AutoTab(id){
+        //继承属性
+        Tab.call(this,id);
+        //新属性
+        this.timer=null;
+        this.autoInit();
+    }
+    //方法继承
+    AutoTab.prototype=new Tab();
+    AutoTab.constructor=AutoTab;
+    //新方法
+    AutoTab.prototype.autoInit=function(){
+        //鼠标移入
+        var _this=this;
+        this.open();
+        this.oBox.onmouseover=function(){
+            _this.close();
+
+        };
+        this.oBox.onmouseout=function(){
+            _this.open();
+        };
+    };
+    AutoTab.prototype.next=function(){
+        this.iNow++;
+        if(this.iNow==this.aBtn.length){
+            this.iNow=0;
+        }
+        //这两个方法是上面继承来的
+        this.hide();
+        this.show();
+    };
+    //打开定时器
+    AutoTab.prototype.open=function(){
+        var _this=this;
+        timer=setInterval(function(){
+            _this.next();
+        },1000);
+    };
+    //关闭定时器
+    AutoTab.prototype.close=function(){
+        clearInterval(timer);
+    };
+
+    window.onload=function(){
+        new Tab('box');
+        new AutoTab('box1');
+    };
+</script>
+</head>
+<body>
+<div id="box" class="box">
+    <input class="on" type="button" value="aaa">
+    <input type="button" value="bbb">
+    <input type="button" value="ccc">
+    <div class="show">111</div>
+    <div>222</div>
+    <div>333</div>
+</div>
+<div id="box1" class="box">
+    <input class="on" type="button" value="aaa">
+    <input type="button" value="bbb">
+    <input type="button" value="ccc">
+    <div class="show">111</div>
+    <div>222</div>
+    <div>333</div>
+</div>
+</body>
+</html>

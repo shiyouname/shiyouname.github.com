@@ -341,7 +341,7 @@ window.onload=function(){
             var oNe=oDiv.children[0];
             var R=4;
             var C=7;
-            var arr=["demo/iPhone/zns_demo3.html","http://www.google.com/","http://www.hao123.com/"];
+            var arr=["demo/iPhone/zns_demo3.html","demo/menu/苹果菜单.html","demo/网易幻灯片.html"];
             for(var r=0; r<R; r++){
                 for(var c=0; c<C; c++){
                     var oSpan=document.createElement('span');
@@ -395,7 +395,7 @@ window.onload=function(){
         var oA=document.getElementById('work_three_a');
 
         var iNow = 0;
-        var arr=["http://www.baidu.com/","http://www.google.com/","http://www.hao123.com/"];
+        var arr=["link/sale_mobile/index.html","link/dang_mobile/index.html","javascript:;"];
         var bOk = false;
         oWork_three_btn.onclick=function(){
             if(bOk)return;
@@ -404,6 +404,7 @@ window.onload=function(){
             oPage1.style.WebkitTransition = '1s all ease';
             oPage1.style.WebkitTransform = 'perspective(800px) rotateY(-180deg)';
             oA.href=arr[iNow%3];
+
             oPage1.addEventListener('transitionend',function(){
                 oPage1.style.WebkitTransition = 'none';
                 oPage1.style.WebkitTransform = 'perspective(800px) rotateY(0deg)';
@@ -500,7 +501,7 @@ window.onload=function(){
         }
         function through(obj)
         {
-            var oS = obj.children[0];
+            var oS = obj.querySelector('span');
             obj.onmouseover=function(ev){
                 var oEvent = ev||event;
                 var oForm = oEvent.formElement||oEvent.relatedTarget;

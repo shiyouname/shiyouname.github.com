@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #div1{
+        width:300px;
+        height:300px;
+        background:#ccc;
+        position:absolute;
+        left:0;
+        top:0;
+    }
+    .l{width:50px;height:100%;position:absolute;top:0;left:0;background:red;}
+    .r{width:50px;height:100%;position:absolute;top:0;right:0;background:red;}
+    .b{height:50px;width:100%;position:absolute;bottom:0;left:0;background:red;}
+    .t{height:50px;width:100%;position:absolute;top:0;left:0;background:red;}
+    .lt{width:50px;height:50px;background:#00aaaa;;position:absolute;top:0;left:0}
+    .rt{width:50px;height:50px;background:#00aaaa;;position:absolute;top:0;right:0}
+    .lb{width:50px;height:50px;background:#00aaaa;;position:absolute;bottom:0;left:0}
+    .rb{width:50px;height:50px;background:#00aaaa;;position:absolute;right:0;bottom:0}
+    .div2{width:200px;height:200px;background:#0000EE;;position:absolute;top:50px;left:50px}
+</style>
+<script>
+    window.onload=function(){
+        var oDiv=document.getElementById('div1');
+        var oDiv2=document.getElementById('div2');
+        var aDiv=oDiv.getElementsByTagName('div');
+        for(var i=0;i<aDiv.length;i++){
+            moveNi(aDiv[i]);
+        }
+        function moveNi(obj){
+            obj.onmousedown=function(ev){
+                var oEvent=ev||event;
+                var downX=oEvent.clientX;
+                var downY=oEvent.clientY;
+                var downT=oDiv.offsetTop;
+                var downL=oDiv.offsetLeft;
+                var downW=oDiv.offsetWidth;
+                var downH=oDiv.offsetHeight;
+                var disX=oEvent.clientX-downL;
+                var disY=oEvent.clientY-downT;
+                var downW2=oDiv2.offsetWidth;
+                var downH2=oDiv2.offsetHeight;
+                document.onmousemove=function(ev){
+                    var oEvent=ev||event;
+
+                    if(obj.className.indexOf('l')!=-1){
+                        oDiv.style.left=downL+(oEvent.clientX-downX)+'px';
+                        oDiv.style.width=downW-(oEvent.clientX-downX)+'px';
+                        oDiv2.style.width=downW2-(oEvent.clientX-downX)+'px';
+                    }
+                    if(obj.className.indexOf('t')!=-1){
+                        oDiv.style.top=downT+(oEvent.clientY-downY)+'px';
+                        oDiv.style.height=downH-(oEvent.clientY-downY)+'px';
+                        oDiv2.style.height=downH2-(oEvent.clientY-downY)+'px';
+                    }
+                    if(obj.className.indexOf('r')!=-1){
+                        oDiv2.style.width=downW2+(oEvent.clientX-downX)+'px';
+                        oDiv.style.width=downW+(oEvent.clientX-downX)+'px';
+                    }
+                    if(obj.className.indexOf('b')!=-1){
+                        oDiv2.style.height=downH2+(oEvent.clientY-downY)+'px';
+                        oDiv.style.height=downH+(oEvent.clientY-downY)+'px';
+                    }
+                    if(obj.className.indexOf('div2')!=-1){
+                        oDiv.style.left=oEvent.clientX-disX+'px';
+                        oDiv.style.top=oEvent.clientY-disY+'px';
+                    }
+                };
+                document.onmouseup=function(){
+                    document.onmouseup=document.onmousemove=null;
+                    obj.releaseCapture&&obj.releaseCapture();
+                };
+                obj.setCapture&&obj.setCapture();
+                return false;
+            };
+        }
+    };
+</script>
+<body>
+<div id="div1">
+    <div class="l"></div>
+    <div class="r"></div>
+    <div class="t"></div>
+    <div class="b"></div>
+    <div class="lt"></div>
+    <div class="lb"></div>
+    <div class="rb"></div>
+    <div class="rt"></div>
+    <div class="div2" id="div2"></div>
+</div>
+</body>
+</html>

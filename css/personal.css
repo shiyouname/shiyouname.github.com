@@ -145,7 +145,7 @@ body{
     margin:0 auto;
     color:#fff;
 }
-.c_in_ul{text-align:center;padding-top:30px;padding-bottom:30px;width:940px;margin-left:45px;
+.c_in_ul{text-align:center;padding-top:30px;padding-bottom:30px;width:940px;margin-left:160px;
     position: relative;}
 
 .c_in_ul li{
@@ -408,8 +408,8 @@ body{
 .work_four h4:hover{background:#f4824c;border-radius:10px;color:#000;}
 .work_four ul{overflow:hidden; width:940px;margin-left:50px;margin-top:50px;}
 .work_four ul li{ width:200px; height:200px; float:left; position:relative; top:0; left:0; margin:5px; background:#ccc; line-height:200px; font-size:30px; overflow:hidden;border-radius:5px;}
-.work_four ul li span{width:100%; height:100%; position:absolute; top:0; left:-200px; background:rgba(255,255,0,0.5);border-radius:5px;}
-
+.work_four ul li span{width:100%; height:100%; position:absolute; top:0; left:-200px; background:rgba(0,0,0,0.7);border-radius:5px;text-align:center;}
+.work_four ul li a{color:#fff;}
 /*four*/
 /*work结束*/
 /*contact*/

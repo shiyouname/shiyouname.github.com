@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="shiyou" />
+<meta name="copyright" content="shiyou" />
+<meta name="description" content="shiyou" />
+<title>苹果菜单</title>
+<style>
+*{margin:0; padding:0;}
+div{position:fixed; left:0; bottom:0;  width:100%; text-align:center;}
+	/*
+		width:100%; text-align:center;
+		让图片居中
+	*/
+</style>
+<script>
+window.onload=function(){
+	var oBox = document.getElementsByTagName('div')[0];
+	var aImg = oBox.children;
+	document.onmousemove=function(ev){
+		var oEvent = ev||event;
+		//获取鼠标距离每张图片的距离
+		for(var i=0;i<aImg.length;i++){
+			var a = oBox.offsetLeft+aImg[i].offsetLeft+aImg[i].offsetWidth/2-oEvent.clientX;
+			//鼠标在屏幕中距离图片中心线x轴的距离
+			var b = oBox.offsetTop+aImg[i].offsetTop+aImg[i].offsetHeight/2-oEvent.clientY;
+			//三角形中直角边的长度
+			var c = Math.sqrt(a*a+b*b);
+			console.log(1-c/500);
+			//通过公式计算出c边的值，也就是鼠标点分别到5个图片中心的距离
+			var scale = 1-c/500;
+			//通过scale可以得出的是鼠标刚好到图片中心，scale值刚好等于1，也就是图片最大的时候
+
+			(scale<0.5)&&(scale=0.5);
+			//距离<0.5的时候图片比例不变一直等于0.5
+
+			aImg[i].width = scale*128;
+			//鼠标越接近图片的时候图片越大，当刚好再中心点的时候图片100%
+			
+			
+			
+			
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<div>
+	<img src="img/1.png" width="64" />
+	<img src="img/2.png" width="64" />
+	<img src="img/3.png" width="64" />
+	<img src="img/4.png" width="64" />
+	<img src="img/5.png" width="64" />
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

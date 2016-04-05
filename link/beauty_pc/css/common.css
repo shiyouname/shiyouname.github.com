@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*style reset*/
+body,ul,p,h1,h2,h3,h4,h5,h6,dl,dd,form,input,textarea,select{padding:0; margin:0;font-size:12px;font-family:"微软雅黑";}
+li{list-style:none;}
+img{border:none;display:block;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+.clearfix{*zoom:1;}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.fl{float:left;}
+.fr{float:right;}
+
+.wrapper {width:1200px;margin:0 auto;}
+.re{position:relative;}
+.ab{position:relative;}
+.top10{margin-top:10px;}
+.borde{border:1px solid #e6e6e6;}
